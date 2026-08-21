@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Utility Hub - RGB Animated Edition</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Top Social Bar -->
+    <div class="top-bar">
+        <span>📲 CONNECT WITH US:</span>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank" class="insta" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" class="yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com" target="_blank" class="fb" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com" target="_blank" class="github" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+    <!-- 2. Header -->
+    <header>
+        <h1>Smart Utility Hub</h1>
+        <p>⚡ Next-Gen AI Automated Digital Tools ⚡</p>
+    </header>
+
+    <!-- 3. Navigation RGB Tabs -->
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTool('qr')">🖼️ Smart QR Generator</button>
+        <button class="tab-btn" onclick="switchTool('compressor')">⚡ Image Compressor</button>
+        <button class="tab-btn" onclick="switchTool('enhancer')">🤖 True AI 4K Enhancer</button>
+    </div>
+
+    <!-- 4. Responsive Container -->
+    <div class="container">
+        
+        <!-- RGB Border Wrapper -->
+        <div class="rgb-card-wrapper">
+            
+            <!-- TOOL 1: SMART QR CODE GENERATOR -->
+            <div id="qr-tool" class="card">
+                <h2 style="color: #66fcf1; font-size: clamp(16px, 4.5vw, 22px);">Smart QR Code Generator</h2>
+                <p style="font-size:12px; color:#c5c6c7; margin-top: 3px;">लिंक, फोटो किंवा व्हिडिओचा स्कॅन होणारा QR बनवा</p>
+
+                <select id="qr-type" onchange="toggleQRInput()">
+                    <option value="text">🔗 लिंक / मेसेज (Text/URL)</option>
+                    <option value="media">🖼️ फोटो / 🎬 व्हिडिओ (Photo & Video QR)</option>
+                </select>
+
+                <div id="qr-text-box">
+                    <input type="text" id="qr-input-text" placeholder="येथे तुमची लिंक किंवा मेसेज टाका...">
+                </div>
+
+                <div id="qr-media-box" style="display:none;">
+                    <input type="file" id="qr-input-file" accept="image/*,video/*">
+                </div>
+
+                <button class="action-btn" onclick="generateQRCode()">✨ Generate QR Code</button>
+
+                <div id="qr-result"></div>
+            </div>
+
+            <!-- TOOL 2: IMAGE COMPRESSOR -->
+            <div id="compressor-tool" class="card" style="display:none;">
+                <h2 style="color: #00f0ff; font-size: clamp(16px, 4.5vw, 22px);">Image Compressor & Resizer</h2>
+                <p style="font-size:12px; color:#c5c6c7; margin-top: 3px;">फोटोंची साईझ ५MB वरून २००KB पर्यंत कमी करा</p>
+
+                <input type="file" id="img-input" accept="image/*">
+                
+                <label style="font-size: 12px; color: #66fcf1; display: block; margin-top: 8px; text-align: left;">कॉम्प्रेस क्वालिटी निवडा:</label>
+                <select id="img-quality">
+                    <option value="0.3">⚡ High Compression (लहान साईझ - फॉर्मसाठी)</option>
+                    <option value="0.5" selected>⚖️ Medium Compression (५०% लहान साईझ)</option>
+                    <option value="0.7">🎨 Low Compression (HD क्वालिटी)</option>
+                </select>
+
+                <button class="action-btn" style="background: linear-gradient(45deg, #ff007f, #7f00ff);" onclick="compressImage()">⚡ Compress Image</button>
+
+                <div id="img-result"></div>
+            </div>
+
+            <!-- TOOL 3: TRUE AI 4K SUPER RESOLUTION -->
+            <div id="enhancer-tool" class="card" style="display:none;">
+                <h2 style="color: #ff007f; font-size: clamp(16px, 4.5vw, 22px);">True AI 4K Super Resolution</h2>
+                <p style="font-size:12px; color:#c5c6c7; margin-top: 3px;">AI GPU सर्व्हरद्वारे पिक्सेल्स जनरेट करून फोटो 4K HD बनवा</p>
+
+                <input type="file" id="enhance-input" accept="image/*">
+                
+                <button class="action-btn" style="background: linear-gradient(45deg, #00ff7f, #00f0ff); color:#0b0c10;" onclick="enhanceMedia()">🤖 Generate True AI 4K Photo</button>
+
+                <div id="enhance-result"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Smart Utility Hub | Unlimited Media Cloud QR
+    </footer>
+
+    <!-- Custom JavaScript Link -->
+    <script src="script.js"></script>
+</body>
+</html>
